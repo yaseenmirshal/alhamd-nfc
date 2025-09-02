@@ -1,103 +1,96 @@
-import Image from "next/image";
+import { FaPhoneAlt, FaEnvelope, FaInstagram, FaMapMarkerAlt, FaGlobe, FaDownload, FaWhatsapp } from "react-icons/fa";
 
-export default function Home() {
+export default function NFCApp() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gradient-to-b from-rose-50 to-white flex flex-col items-center px-6 py-10">
+      {/* Banner / Logo */}
+      <div className="w-full max-w-md bg-white mt-8 rounded-2xl shadow-md p-6 text-center relative">
+        <div className="w-24 h-24 mx-auto rounded-full bg-rose-200 flex items-center justify-center shadow-md -mt-16">
+          <span className="text-rose-900 font-bold text-lg">Logo</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        <h1 className="text-2xl font-bold text-rose-900 mt-4">Alhamd Traders</h1>
+        <p className="text-sm text-gray-600 mt-1">
+          Electrical | Plumbing | Sanitaryware | Hardware | Light | Paint
+        </p>
+      </div>
+
+      {/* Save Contact + Call Button */}
+      <div className="flex justify-center mt-8 gap-3">
+        <button className="bg-rose-900 text-white px-6 py-2 rounded-full flex items-center gap-2 shadow-md hover:bg-rose-800 transition">
+          <FaDownload size={16}/> Save Contact
+        </button>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="tel:9061304796"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-rose-900 text-white shadow-md hover:bg-rose-800 transition"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          <FaPhoneAlt size={16}/>
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      {/* Social Icons */}
+      <section className="flex flex-wrap justify-center gap-4 mt-8">
+        {[
+          { Icon: FaInstagram, href: "https://instagram.com" },
+          { Icon: FaWhatsapp, href: "https://wa.me/919061304796" },
+          { Icon: FaMapMarkerAlt, href: "https://maps.google.com" },
+          { Icon: FaGlobe, href: "https://alhamdtraders.com" },
+          { Icon: FaEnvelope, href: "mailto:alhamdclt@gmail.com" },
+        ].map(({ Icon, href }, idx) => (
+          <a
+            key={idx}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 flex items-center justify-center rounded-full bg-rose-900 text-white shadow hover:bg-rose-800 transition"
+          >
+            <Icon size={20}/>
+          </a>
+        ))}
+      </section>
+
+      {/* Services Section */}
+      <section className="w-full max-w-md mt-10">
+        <h2 className="text-lg font-semibold text-rose-900 mb-3 text-center">Our Services</h2>
+        <ul className="grid grid-cols-2 gap-3 text-sm text-gray-700">
+          <li className="bg-gray-100 rounded-lg py-2 text-center shadow-sm">Electrical</li>
+          <li className="bg-gray-100 rounded-lg py-2 text-center shadow-sm">Plumbing</li>
+          <li className="bg-gray-100 rounded-lg py-2 text-center shadow-sm">Sanitaryware</li>
+          <li className="bg-gray-100 rounded-lg py-2 text-center shadow-sm">Hardware</li>
+          <li className="bg-gray-100 rounded-lg py-2 text-center shadow-sm">Light</li>
+          <li className="bg-gray-100 rounded-lg py-2 text-center shadow-sm">Paint</li>
+        </ul>
+      </section>
+
+      {/* Our Team */}
+      <section className="w-full max-w-md mt-12 mb-8">
+        <h2 className="text-lg font-semibold text-rose-900 mb-4 text-center">Our Team</h2>
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { name: "Abbas", role: "CEO" },
+            { name: "Irshad", role: "Manager" },
+          ].map((member, i) => (
+            <div key={i} className="bg-white p-4 rounded-2xl text-center shadow-sm">
+              <div className="w-20 h-20 mx-auto mb-3 rounded-full bg-gray-200"/>
+              <h3 className="font-medium text-gray-900">{member.name}</h3>
+              <p className="text-sm text-gray-600 mb-3">{member.role}</p>
+              <div className="flex justify-center gap-3">
+                <a
+                  href="tel:9061304796"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-rose-900 text-white"
+                >
+                  <FaPhoneAlt size={16}/>
+                </a>
+                <a
+                  href="https://wa.me/919061304796"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-rose-900 text-white"
+                >
+                  <FaWhatsapp size={18}/>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
